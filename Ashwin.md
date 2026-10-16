@@ -40,7 +40,7 @@ OWASP{b4s364_1s_n0t_3ncrypt10n}
 
 So the flag is:
 
-Flag: OWASP{b4s364_1s_n0t_3ncrypt10n}
+**Flag:** `OWASP{b4s364_1s_n0t_3ncrypt10n}`
 
 
 

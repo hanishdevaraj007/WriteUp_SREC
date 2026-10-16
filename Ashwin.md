@@ -4,7 +4,7 @@ Ashwin
 
 I inspected the binary and found that its bytes had been reversed. After restoring the ELF executable, I checked the flag-validation function and identified an XOR operation using the key 0x5A. I used the same key to decrypt the stored bytes and recover the flag.
 
-*Flag:* OWASP{fr0m_741l_70_h34d}
+**Flag:** OWASP{fr0m_741l_70_h34d}
 
 
 
